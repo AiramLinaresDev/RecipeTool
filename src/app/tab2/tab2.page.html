@@ -1,0 +1,94 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Filter Recipes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <!-- Contenido del Menú -->
+    <ion-select (ionChange)="handleFilterEvent($event)" 
+    label="Cuisine Type" 
+    label-placement="outline" 
+    fill="solid" 
+    multiple="true"
+    name="cuisineType">
+      @for (item of CuisineTypes; track $index) {
+        <ion-select-option value="{{item}}">{{item}}</ion-select-option>
+      }
+    </ion-select>
+    <ion-select (ionChange)="handleFilterEvent($event)" 
+    label="Meal Type" 
+    label-placement="outline" 
+    fill="solid" 
+    multiple="true"
+    name="mealType">
+      @for (item of MealTypes; track $index) {
+        <ion-select-option value="{{item}}">{{item}}</ion-select-option>
+      }
+    </ion-select>
+    <ion-select (ionChange)="handleFilterEvent($event)" 
+    label="Dish Type" 
+    label-placement="outline" 
+    fill="solid" 
+    multiple="true"
+    name="dishType">
+      @for (item of DishTypes; track $index) {
+        <ion-select-option value="{{item}}">{{item}}</ion-select-option>
+      }
+    </ion-select>
+    <ion-select (ionChange)="handleFilterEvent($event)" 
+    label="Health Label" 
+    label-placement="outline" 
+    fill="solid" 
+    multiple="true"
+    name="healthLabel">
+      @for (item of HealthLabels; track $index) {
+        <ion-select-option value="{{item}}">{{item}}</ion-select-option>
+      }
+    </ion-select>
+    <ion-select (ionChange)="handleFilterEvent($event)" 
+    label="Diet Label" 
+    label-placement="outline" 
+    fill="solid" 
+    multiple="true"
+    name="dietLabel">
+      @for (item of DietLabels; track $index) {
+        <ion-select-option value="{{item}}">{{item}}</ion-select-option>
+      }
+    </ion-select>
+  </ion-content>
+</ion-menu>
+<ion-header [translucent]="true" id="main-content">
+  <ion-toolbar>
+    <ion-buttons slot="start" >
+      <ion-menu-button>
+        <ion-icon name="filter"></ion-icon>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar (keyup.enter)="handleSearchEvent(receta.value ?? '')" #receta></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button class="ion-margin-end" (click)="handleSearchEvent(receta.value ?? '')">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-text class="ion-text-center">
+    <h1>Search Recipes</h1>
+  </ion-text>
+  @if (recetas.length === 0) {
+    <ion-text class="ion-text-center">
+      <h3>No recipes yet</h3>
+    </ion-text>
+  }
+  @else {
+    <ion-text class="ion-text-center">
+      <h3>Found Recipes</h3>
+    </ion-text>
+    <ion-item-divider class="ion-margin-bottom"></ion-item-divider>
+    
+    <app-recipe-cards [recetas]="recetas"></app-recipe-cards>
+  }
+</ion-content>

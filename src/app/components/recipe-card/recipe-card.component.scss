@@ -1,0 +1,61 @@
+ion-fab {
+    position: fixed;
+    top: -3%;
+    right: -1%;
+}
+
+ion-fab-list {
+  margin-top: 70%;
+}
+
+ion-fab-button.fab-button-close-active {
+  --color: var(--ion-color-danger);
+  --transition: opacity 0 ease-in;
+}
+
+ion-card {
+  border-radius: 10px;
+  background-color: #262626;
+  max-width: 400px;
+}
+
+ion-card-title {
+  min-height: 50px;
+  font-size: 1.5em;
+  color: white;
+  width: 80%;
+}
+
+ion-icon {
+  color: white;
+}
+
+ion-fab-button {
+  --background: transparent;
+  --box-shadow: none;
+  margin-bottom: -20%;
+}
+
+ion-img, ion-skeleton-text {
+  min-height: 30vh;
+  max-height: 50vh;
+  --border-radius	: 10px;
+}
+
+ion-img::part(image) {
+  border-radius: 10px;
+}
+
+#ingredients {
+  max-height: 120px;
+  overflow: hidden;
+}
+
+#points{
+  margin-top: -10px;
+  margin-left: 5px;
+}
+
+ion-title {
+  margin-left: -20px;
+}
